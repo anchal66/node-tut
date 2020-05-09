@@ -2,7 +2,8 @@ const chalk = require('chalk')
 const validator = require('validator');
 const getNotes = require('./notes.js');
 
-const msg = getNotes();
-console.log(msg);
+const command = process.argv[2];
 
-console.log(chalk.green('Success!'));
+if(command === 'add'){
+    console.log('Add')
+}
