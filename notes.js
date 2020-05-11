@@ -39,7 +39,16 @@ const loadNotes = ()=>{
     }
 }
 
+const removeNote = ()=>{
+    const notes = loadNotes();
+    const notesToKeep = notes.filter((note)=>{
+        return note.title !== title;
+    });
+    saveNotes(notesToKeep)
+}
+
 module.exports = {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote
 }
