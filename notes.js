@@ -5,12 +5,22 @@ const getNotes = () =>{
 
 const addNote =(title,body)=>{
     const notes = loadNotes();
-    notes.push({
-        title: title,
-        body: body
+    const dupicateNotes = notes.filter((note)=>{
+        return note.title === title
     })
-    saveNotes(notes);
-    console.log(notes)
+
+    if(dupicateNotes.length === 0){
+        notes.push({
+            title: title,
+            body: body
+        })
+        saveNotes(notes);
+        console.log("Succesfully Added ", notes)
+    }
+    else{
+        console.log('Note Title Already exists')
+    }
+    
 }
 
 const saveNotes = (notes)=>{
