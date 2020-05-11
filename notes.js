@@ -1,3 +1,19 @@
-const getNotes = () => "Hello notes here...";
+const fs =require('fs')
+const getNotes = () =>{
+    return "Yoir Notes"
+}
 
-module.exports = getNotes
+const addNote =(title,body)=>{
+    const notes = loadNotes();
+}
+
+const loadNotes = ()=>{
+    const dataBuffer = fs.readFileSync('notes.json');
+    const dataJson = dataBuffer.toString();
+    return JSON.parse(dataJson);
+}
+
+module.exports = {
+    getNotes: getNotes,
+    addNote: addNote
+}
